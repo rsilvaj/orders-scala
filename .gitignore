@@ -1,2 +1,27 @@
+# sbt
+# (may want to keep parts of 'project')
+bin/
+project/
+target/
+build/
+
+# eclipse
+build
+.classpath
+.project
+.settings
+.worksheet
+
+# vscode
+*.vscode
+
+*.ipr
+*.iws
+.idea
+
+# other
+*.bsp
+*.metals
+
+#general
 *.class
-*.log
