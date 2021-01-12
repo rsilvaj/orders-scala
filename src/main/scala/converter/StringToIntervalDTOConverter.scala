@@ -7,7 +7,8 @@ object StringToIntervalDTOConverter {
   var patternGreatherThan: Pattern = Pattern.compile(">(\\d+)")
 
   def convert(from: String): IntervalDTO = {
-    var to = new IntervalDTO(0, 0, from)
+    // 0, 120 (max of 120 months)
+    var to = new IntervalDTO(0, 120, from)
     var matcherBetween: Matcher = patternBetween.matcher(from)
     var matcherGreatherThan: Matcher = patternGreatherThan.matcher(from)
 

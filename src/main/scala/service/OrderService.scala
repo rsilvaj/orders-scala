@@ -28,7 +28,7 @@ object OrderService {
       intervalDTO: IntervalDTO
   ): Long = {
     // last day of month
-    var startRange = endLocalDateTime
+    var startRange = LocalDateTime.now()
       .minus(intervalDTO.getStart().toLong, ChronoUnit.MONTHS)
       .withDayOfMonth(1)
       .plus(1, ChronoUnit.MONTHS)
@@ -37,10 +37,7 @@ object OrderService {
       .withMinute(59)
       .withSecond(59)
     // first day of month or lowest data
-    var endRange =
-      if (intervalDTO.getEnd() == null) LocalDateTime.MIN
-      else
-        endLocalDateTime
+    var endRange = LocalDateTime.now()
           .withDayOfMonth(1)
           .minus(intervalDTO.getEnd().toLong, ChronoUnit.MONTHS);
     // orders to test

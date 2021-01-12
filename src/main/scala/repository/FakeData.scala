@@ -14,9 +14,11 @@ object FakeData {
     var productC = new Product();
     productC.setCreatedAt(LocalDateTime.now().minus(2, ChronoUnit.YEARS));
     var productD = new Product();
-    productD.setCreatedAt(
-      LocalDateTime.now().minus(2, ChronoUnit.YEARS).minus(1, ChronoUnit.DAYS)
-    );
+    productD.setCreatedAt(LocalDateTime.now().minus(2, ChronoUnit.YEARS).minus(1, ChronoUnit.DAYS));
+    var productE = new Product();
+    productE.setCreatedAt(LocalDateTime.now().minus(7, ChronoUnit.MONTHS));
+    var productF = new Product();
+    productF.setCreatedAt(LocalDateTime.now().minus(3, ChronoUnit.MONTHS));
 
     var items1 = new ArrayList[Item]();
     var item1 = new Item();
@@ -61,6 +63,30 @@ object FakeData {
     );
     order3.setItems(items3);
     orders.add(order3);
+
+    /*  more 2 orders   */
+
+    var items4 = new ArrayList[Item]();
+    var item8 = new Item();
+    item8.setProduct(productE);
+    items4.add(item8);
+    /* date of order - ( 7 months ago )  */
+    var order4 = new Order();
+    order4.setCreatedAt(LocalDateTime.now().minus(7, ChronoUnit.MONTHS));
+    order4.setItems(items4);
+    orders.add(order4);
+
+    var items5 = new ArrayList[Item]();
+    var item9 = new Item();
+    item9.setProduct(productF);
+    items5.add(item9);
+    /* date of order - ( 3 months ago )  */
+    var order5 = new Order();
+    order5.setCreatedAt(LocalDateTime.now().minus(3, ChronoUnit.MONTHS));
+    order5.setItems(items5);
+    orders.add(order5); 
+
+    
 
     return orders;
   }
